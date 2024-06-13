@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Score</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            background-image: url('../static/bg2.jpg');
+            overflow: hidden;
+            background-size: cover;
+            color: black;
+        }
+        .predictions{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="given_data">
+            <h2 style="text-align:center">Given Data</h2>
+            <p><b>Batting team :</b>{{battingTeam}}</p>
+            <p><b>Bowling team :</b>{{bowlingTeam}}</p>
+            <p><b>Stadium :</b>{{stadium}}</p>
+            <p><b>Current Overs :</b>{{overs}}</p>
+            <p><b>Current Runs :</b>{{runs}}</p>
+            <p><b>Wickets Taken :</b>{{wickets}}</p>
+            <p><b>Runs scored in last 5 overs :</b>{{runsIn5}}</p>
+            <p><b>Wickets taken in last 5 overs :</b>{{wicketsIn5}}</p>
+        </div>
+        <div class="predictions">
+            <div class="runrate">
+                <h3>Score determination based on run rate</h3>
+                <p>Current run rate : {{currentRunRate}}</p>
+                <p>Current score : {{runs}} </p>
+                <p>Predicted score : {{totalScore}}</p>
+            </div>
+            <div class="predict">
+                <h3>Score determination based on ML model</h3>
+                <p>Predicted Score : {{predictedValue}}</p>
+                <p>Score range : {{predictedValue-5}} - {{predictedValue+10}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
